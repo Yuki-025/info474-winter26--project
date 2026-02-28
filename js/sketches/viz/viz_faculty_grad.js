@@ -1,6 +1,8 @@
 // js/sketches/viz/viz_faculty_grad.js
 (function () {
-  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+  function clamp(v, a, b) {
+    return Math.max(a, Math.min(b, v));
+  }
 
   window.VizFacultyGrad = {
     draw: function (p, manager, ai, progress) {
@@ -49,14 +51,14 @@
 
         const maxPop = manager.maxCollegePop || 55000;
         const sliderMin = 2000;
-        const sliderMax = Math.max(sliderMin + 1000, Math.round(maxPop / 500) * 500);
+        const sliderMax = Math.max(
+          sliderMin + 1000,
+          Math.round(maxPop / 500) * 500,
+        );
 
-        manager.__facultyFilterUI.sizeSlider = p.createSlider(
-          sliderMin,
-          sliderMax,
-          Math.min(15000, sliderMax),
-          500
-        ).parent(row);
+        manager.__facultyFilterUI.sizeSlider = p
+          .createSlider(sliderMin, sliderMax, Math.min(15000, sliderMax), 500)
+          .parent(row);
         manager.__facultyFilterUI.sizeSlider.style("width", "130px");
 
         manager.__facultyFilterUI.sizeValueLabel = p.createSpan("").parent(row);
@@ -84,7 +86,11 @@
       p.textSize(24);
       p.textAlign(p.CENTER, p.BASELINE);
       // center relative to plotting area
-      p.text("Faculty Ratio (proxy) vs Graduation Rate", (left + right) / 2, 40);
+      p.text(
+        "Faculty Ratio (proxy) vs Graduation Rate",
+        (left + right) / 2,
+        40,
+      );
       p.textAlign(p.LEFT, p.BASELINE);
 
       // Axes box
@@ -102,9 +108,11 @@
 
       // --- Filter logic (student size threshold) ---------------------------
       const ui = manager.__facultyFilterUI;
-      const maxSize = ui.sizeSlider ? ui.sizeSlider.value() : (manager.maxCollegePop || 0);
+      const maxSize = ui.sizeSlider
+        ? ui.sizeSlider.value()
+        : manager.maxCollegePop || 0;
 
-      const filtered = pts.filter(d => {
+      const filtered = pts.filter((d) => {
         return Number.isFinite(d.pop) && d.pop <= maxSize;
       });
 
@@ -113,8 +121,10 @@
       ui.countLabel.html(`Showing <b>${filtered.length}</b> schools`);
 
       // --- Scales (0..1 proportions) -------------------------------------
-      const xMin = 0, xMax = 1;
-      const yMin = 0, yMax = 1;
+      const xMin = 0,
+        xMax = 1;
+      const yMin = 0,
+        yMax = 1;
 
       const sx = (x) => p.map(x, xMin, xMax, left, right);
       const sy = (y) => p.map(y, yMin, yMax, bottom, top);
@@ -146,7 +156,8 @@
       p.pop();
 
       // --- Hover detection (on filtered points) ---------------------------
-      const mx = p.mouseX, my = p.mouseY;
+      const mx = p.mouseX,
+        my = p.mouseY;
       let nearestIdx = -1;
       let nearestDist = 1e9;
 
@@ -167,29 +178,30 @@
       for (const d of filtered) {
         const isPublic = (d.control || "").toLowerCase() === "public";
         if (isPublic) {
-          p.fill(66, 133, 244, 190);   // blue
+          p.fill(66, 133, 244, 190); // blue
         } else {
-          p.fill(219, 152, 55, 190);   // orange/yellow
+          p.fill(219, 152, 55, 190); // orange/yellow
         }
         p.noStroke();
         p.circle(sx(d.x), sy(d.y), 5);
       }
 
       // Legend (top-left inside plot)
-      const legendX = left + 22;
-      const legendY = top + 26;
-      p.textSize(13);
+      const legendX = left + 14;
+      const legendY = top + 20;
+      p.textSize(12);
+      p.textAlign(p.LEFT, p.CENTER);
 
       p.noStroke();
       p.fill(66, 133, 244);
-      p.circle(legendX, legendY, 10);
-      p.fill(0);
-      p.text("Public", legendX + 14, legendY + 4);
+      p.circle(legendX + 5, legendY, 10);
+      p.fill(40);
+      p.text("Public", legendX + 14, legendY);
 
       p.fill(219, 152, 55);
-      p.circle(legendX, legendY + 22, 10);
-      p.fill(0);
-      p.text("Private", legendX + 14, legendY + 26);
+      p.circle(legendX + 5, legendY + 20, 10);
+      p.fill(40);
+      p.text("Private", legendX + 14, legendY + 20);
 
       // --- Highlight + tooltip -------------------------------------------
       if (hovering) {
@@ -214,13 +226,15 @@
 
         p.textSize(12);
         const pad = 10;
-        const boxW = Math.max(
-        p.textWidth(line1),
-        p.textWidth(line2),
-        p.textWidth(line3),
-        p.textWidth(line4),
-        p.textWidth(line5)
-        ) + pad * 2;
+        const boxW =
+          Math.max(
+            p.textWidth(line1),
+            p.textWidth(line2),
+            p.textWidth(line3),
+            p.textWidth(line4),
+            p.textWidth(line5),
+          ) +
+          pad * 2;
         const boxH = 5 * 16 + pad * 2;
 
         let tx = clamp(mx + 12, left + 6, right - boxW - 6);
@@ -242,6 +256,6 @@
         p.text(line4, tx + pad, ty + pad + 60);
         p.text(line5, tx + pad, ty + pad + 76);
       }
-    }
+    },
   };
 })();

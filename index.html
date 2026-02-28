@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 
+<script src="js/sketches/viz/viz_tuition_grad.js"></script>
+<script src="js/sketches/sketch_renderer.js"></script>
 <head>
   <title>Scrolling Sections</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
@@ -34,13 +36,20 @@
           <div class="title">Does Higher Tuition Improve Graduation Rates?</div>
           Next, we look at the relationship between <b>tuition cost</b> and <b>graduation rate</b>.
           If tuition increases, do graduation rates increase too or does the pattern vary by school type?
+          The chart on the right shows every college as a dot; blue dots are public
+          institutions and orange dots are private. Use the filters on the right
+          to limit the data by institution type or maximum tuition.
         </section>
         <!-- Explanation -->
         <section class="step" data-active-index="4">
           <div class="title">Interpreting the Pattern</div>
+          The scatter plot suggests that higher-cost schools tend to have higher
+          graduation rates, although there is considerable overlap. Public and
+          private schools follow similar upward trends, but private institutions
+          make up most of the high-tuition, high-completion points.
         </section>
 
-        <!-- 3: Student–Faculty Ratio vs Grad Rate -->
+        <!-- 3: Student-Faculty Ratio vs Grad Rate -->
         <section class="step" data-active-index="5">
           <div class="title">Do Smaller Classes Matter More Than Tuition?</div>
           Here we explore whether <b>student-faculty ratio</b> (a proxy for class size / attention) relates to graduation outcomes.
@@ -50,7 +59,7 @@
         <section class="step" data-active-index="6">
           <div class="title">What This Suggests</div>
           The chart shows a small positive relationship between 
-          <b>student–faculty ratio</b> and graduation rate, but the pattern is not strong. 
+          <b>student-faculty ratio</b> and graduation rate, but the pattern is not strong. 
           Schools with more full-time faculty do not always have much higher completion rates.
 
           <br><br>
