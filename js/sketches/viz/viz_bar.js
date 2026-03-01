@@ -1,47 +1,72 @@
-// viz_bar.js
-// Simple horizontal bar plot visual (12 months) using cached random values.
+// js/sketches/viz/viz_bar.js
 (function () {
-    window.VizBar = {
-        draw: function (p, manager, ai, progress) {
-            p.push();
-            var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-            var left = manager.offsetX || 20;
-            var top = manager.offsetY || 0;
-            var availW = (manager.width || 600) - 40; // leave some right padding
-            var availH = (manager.height || 520) - 20;
-            var rowH = availH / months.length;
-            var barMaxW = Math.max(60, availW - 120);
-            var barUpdateEvery = 60; // regenerate every ~2s at 30fps
+  const PALETTE = [
+    [ 46, 111, 173],
+    [219, 132,  55],
+    [ 61, 189, 168],
+    [168, 100, 200],
+    [220,  80,  80],
+    [ 80, 180,  80],
+    [200, 160,  40],
+    [100, 140, 200],
+    [180, 100,  60]
+  ];
 
-            if (!manager._barCounts || (p.frameCount % barUpdateEvery === 0)) {
-                var bc = [];
-                for (var m = 0; m < months.length; m++) bc.push(Math.random());
-                manager._barCounts = bc;
-            }
+  window.VizBar = {
+    draw: function (p, manager, ai, progress) {
+      p.background(255);
 
-            var bc = manager._barCounts || [];
-            p.noStroke();
-            p.textAlign(p.LEFT, p.CENTER);
-            p.textSize(12);
+      const data   = manager.regionGradData || [];
+      const fullW  = manager.width  || 600;
+      const fullH  = manager.height || 520;
+      const left   = (manager.margin && manager.margin.left) || 80;
+      const top    = 90;
+      const right  = left + fullW - 40;
+      const bottom = top  + fullH - 130;
 
-            for (var i = 0; i < months.length; i++) {
-                var y = top + i * rowH + rowH / 2;
-                p.fill(30);
-                p.text(months[i], left, y);
+      p.noStroke(); p.fill(0); p.textSize(22);
+      p.textAlign(p.CENTER, p.BASELINE);
+      p.text('Average Graduation Rate by Region', (left + right) / 2, 40);
+      p.textSize(13); p.fill(100);
+      p.text('How do outcomes compare across the United States?', (left + right) / 2, 62);
+      p.textAlign(p.LEFT, p.BASELINE);
 
-                var val = bc[i] || 0;
-                var bw = val * barMaxW;
-                var bx = left + 60; // offset for labels
-                var by = y - (rowH * 0.35);
-                var bh = rowH * 0.7;
-                p.fill(80, 150, 200, 220);
-                p.rect(bx, by, bw, bh, 3);
+      if (!data.length) {
+        p.noStroke(); p.fill(120); p.textSize(14);
+        p.text('No data loaded yet…', left + 10, top + 30);
+        return;
+      }
 
-                p.fill(255);
-                p.textAlign(p.LEFT, p.CENTER);
-                p.text(Math.round(val * 100), bx + 6, y);
-            }
-            p.pop();
+      const sorted  = data.slice().sort((a, b) => b.avg - a.avg);
+      const barMaxW = right - left - 120;
+      const rowH    = (bottom - top) / sorted.length;
+
+      p.noStroke(); p.textSize(12);
+
+      for (let i = 0; i < sorted.length; i++) {
+        const row = sorted[i];
+        const y   = top + i * rowH + rowH / 2;
+        const bw  = p.map(row.avg, 0, 1, 0, barMaxW);
+        const bx  = left + 120;
+        const col = PALETTE[i % PALETTE.length];
+
+        p.fill(col[0], col[1], col[2], 200);
+        p.rect(bx, y - rowH * 0.35, bw, rowH * 0.7, 3);
+
+        // Region label
+        p.fill(40); p.textAlign(p.RIGHT, p.CENTER);
+        p.text(row.region, bx - 8, y);
+
+        // Value + count label
+        const label = (row.avg * 100).toFixed(1) + '%  (n=' + row.count + ')';
+        if (bw > 50) {
+          p.fill(255); p.textAlign(p.LEFT, p.CENTER);
+          p.text(label, bx + 6, y);
+        } else {
+          p.fill(40); p.textAlign(p.LEFT, p.CENTER);
+          p.text(label, bx + bw + 6, y);
         }
-    };
+      }
+    }
+  };
 })();

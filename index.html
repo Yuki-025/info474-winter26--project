@@ -23,12 +23,14 @@
          <!-- 1: Public vs Private -->
         <section class="step" data-active-index="1">
           <div class="title">Do Public or Private Universities Graduate More Students?</div>
-          We start by comparing graduation rates between <b>public</b> and <b>private</b> institutions.
-          Are private schools consistently higher, or is the difference smaller than we expect?
+          We start by comparing average graduation rates between <b>public</b> and <b>private</b> institutions.
+          Use the region filter on the right to explore whether this gap holds across different parts of the country.
         </section>
          <!-- Explanation -->
         <section class="step" data-active-index="2">
-            <div class="title">What We Notice</div>
+          <div class="title">Looking Closer at Individual Colleges</div>
+          Each dot now represents one college within its bar. While private institutions average higher rates overall,
+          there is considerable overlap — many public universities outperform private peers in the same region.
         </section>
 
         <!-- 2: Tuition vs Grad Rate -->
@@ -40,6 +42,8 @@
           institutions and orange dots are private. Use the filters on the right
           to limit the data by institution type or maximum tuition.
         </section>
+
+
         <!-- Explanation -->
         <section class="step" data-active-index="4">
           <div class="title">Interpreting the Pattern</div>
@@ -49,12 +53,14 @@
           make up most of the high-tuition, high-completion points.
         </section>
 
+
         <!-- 3: Student-Faculty Ratio vs Grad Rate -->
         <section class="step" data-active-index="5">
           <div class="title">Do Smaller Classes Matter More Than Tuition?</div>
           Here we explore whether <b>student-faculty ratio</b> (a proxy for class size / attention) relates to graduation outcomes.
           Do schools with more faculty per student show higher graduation rates?
         </section>
+
         <!-- Explanation -->
         <section class="step" data-active-index="6">
           <div class="title">What This Suggests</div>
@@ -72,14 +78,18 @@
         </section>
         <!-- 4: Conclusion / Ranking -->
         <section class="step" data-active-index="7">
-          <div class="title">Conclusion: Which Factors Matter Most?</div>
-          Finally, we summarize what we found and rank the factors based on how strongly they appear to relate to graduation rate.
-          (This section will be refined as we connect all charts to the real dataset.)
+          <div class="title">Does Selectivity Predict Graduation?</div>
+          Finally, we look at <b>admission rate</b> as a proxy for student preparation and institutional selectivity.
+          Hover over any dot to explore individual schools.
+          More selective schools (lower admission rates) tend to show substantially higher graduation rates.
         </section>
 
+        <section class="step" data-active-index="8">
+          <div class="title">Conclusion: How Do Regions Compare?</div>
+          To wrap up, we look at average graduation rates by <b>geographic region</b>.
+          Regional differences reflect the combined effect of institution mix, tuition levels,
+          faculty investment, and student selectivity.
         </section>
-          <div id="extra-space">
-        </div>
 
       </div>
       <div id='vis' class='vis-hidden'>
@@ -108,9 +118,12 @@
 
   <!-- sketches (renderers): UPDATE HERE FOR PROJECT -->
   <script src="js/sketches/viz/viz_title.js"></script>
-  <script src="js/sketches/viz/viz_scatter.js"></script>
-  <script src="js/sketches/viz/viz_bar.js"></script>
+  <script src="js/sketches/viz/viz_public_private.js"></script>
+  <script src="js/sketches/viz/viz_tuition_grad.js"></script>
   <script src="js/sketches/viz/viz_faculty_grad.js"></script>
+  <script src="js/sketches/viz/viz_admission.js"></script>
+  <script src="js/sketches/viz/viz_bar.js"></script>
+
   <script src="js/sketches/sketch_renderer.js"></script>
 
 
