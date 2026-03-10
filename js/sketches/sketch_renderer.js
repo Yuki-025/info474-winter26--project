@@ -111,16 +111,17 @@
         else                       manager.__tuitionFilterUI.panel.hide();
       }
       if (manager.__facultyFilterUI && manager.__facultyFilterUI.panel) {
-        if (ai === 5 || ai === 6) manager.__facultyFilterUI.panel.show();
+        if (ai === 5) manager.__facultyFilterUI.panel.show();
         else                       manager.__facultyFilterUI.panel.hide();
       }
 
       if (ai === 0)             { window.VizTitle.draw(p, manager, ai, progress);         return; }
       if (ai === 1 || ai === 2) { window.VizPublicPrivate.draw(p, manager, ai, progress); return; }
       if (ai === 3 || ai === 4) { window.VizTuitionGrad.draw(p, manager, ai, progress);   return; }
-      if (ai === 5 || ai === 6) { window.VizFacultyGrad.draw(p, manager, ai, progress);   return; }
-      if (ai === 7)             { window.VizAdmission.draw(p, manager, ai, progress);     return; }
-      if (ai === 8)             { window.VizBar.draw(p, manager, ai, progress);            return; }
+      if (ai === 5)             { window.VizFacultyGrad.draw(p, manager, ai, progress);   return; }
+      if (ai === 6)             { window.VizAdmission.draw(p, manager, ai, progress);     return; }
+      if (ai === 7)             { window.VizBar.draw(p, manager, ai, progress);           return; }
+      if (ai === 8)             { window.VizSummary.draw(p, manager, ai, progress);       return; }
     }
   };
 })();

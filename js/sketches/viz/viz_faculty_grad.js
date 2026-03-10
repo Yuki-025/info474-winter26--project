@@ -178,9 +178,9 @@
       for (const d of filtered) {
         const isPublic = (d.control || "").toLowerCase() === "public";
         if (isPublic) {
-          p.fill(66, 133, 244, 190); // blue
+          p.fill(66, 133, 244, 140); // alpha ~0.55
         } else {
-          p.fill(219, 152, 55, 190); // orange/yellow
+          p.fill(219, 152, 55, 140); // alpha ~0.55
         }
         p.noStroke();
         p.circle(sx(d.x), sy(d.y), 5);

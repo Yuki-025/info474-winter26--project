@@ -400,11 +400,11 @@
       }
       var hovering = nearestIdx !== -1 && nearestDist <= 10;
 
-      // draw all dots with fade-in alpha
+      // draw all dots with fade-in alpha (slightly more opaque)
       for (var j = 0; j < visible.length; j++) {
         var d = visible[j];
         var col = d.control === "Public" ? COL_PUBLIC : COL_PRIVATE;
-        var alpha = Math.round(180 * _animT);
+        var alpha = Math.round(255 * 0.55 * _animT);
 
         p.noStroke();
         p.fill(col[0], col[1], col[2], alpha);
@@ -412,10 +412,9 @@
       }
 
       // ── Legend ───────────────────────────────────────────────────────
-      // position legend inside plot, top-left corner
-      const legendWidth = 100;
-      const legendX = plotLeft + 14;
-      const legendY = plotTop + 20;
+      // position legend inside plot, bottom-right corner (avoid quartile labels)
+      const legendX = plotRight - 92;
+      const legendY = plotBottom - 46;
       p.textSize(12);
       p.textAlign(p.LEFT, p.CENTER);
 

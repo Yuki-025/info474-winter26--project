@@ -83,7 +83,7 @@
         const isPublic = (d.control || '').toLowerCase() === 'public';
         const col = isPublic ? COL_PUB : COL_PRIV;
         p.noStroke();
-        p.fill(col[0], col[1], col[2], 140);
+        p.fill(col[0], col[1], col[2], 140); // alpha ~0.55
         p.circle(sx(d.admission), sy(d.grad), 5);
       }
 

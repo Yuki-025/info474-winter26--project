@@ -11,84 +11,106 @@
 
 <body>
   <div class="container">
-    <div id='graphic'>
+  <div id='graphic'>
       <div id='sections'>
           <!-- 0: Intro -->
         <section class="step" data-active-index="0">
-          <div class="title">What Factors Influence College Graduation Rates?</div>
-          Graduation rates vary widely across universities. In this interactive article, we explore three possible factors:
-          <b>institution type</b> (public vs private), <b>tuition</b>, and <b>student-faculty ratio</b>.
-          Scroll to compare patterns and see which factors seem most related to graduation outcomes.
+          <div class="title">Why Do Some Colleges Graduate Far More Students Than Others?</div>
+          College graduation rates vary dramatically across the United States.
+          At some institutions, nearly every student finishes their degree, while at others, fewer than half graduate within six years.
+          <br><br>
+          What explains this gap?
+          <br><br>
+          In this interactive article, we explore several factors that may shape graduation outcomes — including institution type, tuition,
+          faculty resources, and admissions selectivity — using data from more than 1,200 colleges across the United States.
         </section>
          <!-- 1: Public vs Private -->
         <section class="step" data-active-index="1">
-          <div class="title">Do Public or Private Universities Graduate More Students?</div>
-          We start by comparing average graduation rates between <b>public</b> and <b>private</b> institutions.
-          Use the region filter on the right to explore whether this gap holds across different parts of the country.
+          <div class="title">A First Clue: Public vs. Private Institutions</div>
+          A simple place to start is the type of institution.
+          Do private colleges graduate more students than public universities?
+          <br><br>
+          Across our dataset, private institutions do appear to have higher average graduation rates.
+          On average, about 60.8% of students graduate from private colleges within 150% of the expected time, compared with 49.7% at public institutions.
+          <br><br>
+          But this comparison raises an important question: is the difference really about institution type — or about other factors that tend to differ between public and private schools?
         </section>
          <!-- Explanation -->
         <section class="step" data-active-index="2">
-          <div class="title">Looking Closer at Individual Colleges</div>
-          Each dot now represents one college within its bar. While private institutions average higher rates overall,
-          there is considerable overlap — many public universities outperform private peers in the same region.
+          <div class="title">Looking Beyond Averages</div>
+          Average values can hide a lot of variation.
+          <br><br>
+          When we look at individual colleges, the picture becomes more complicated. Each dot in the chart represents a single institution.
+          <br><br>
+          While private colleges tend to cluster at higher graduation rates overall, there is substantial overlap between the two groups.
+          Many public universities graduate students at rates comparable to — or even higher than — some private institutions.
+          <br><br>
+          This suggests that institution type alone cannot fully explain graduation outcomes.
         </section>
 
         <!-- 2: Tuition vs Grad Rate -->
         <section class="step" data-active-index="3">
-          <div class="title">Does Higher Tuition Improve Graduation Rates?</div>
-          Next, we look at the relationship between <b>tuition cost</b> and <b>graduation rate</b>.
-          If tuition increases, do graduation rates increase too or does the pattern vary by school type?
-          The chart on the right shows every college as a dot; blue dots are public
-          institutions and orange dots are private. Use the filters on the right
-          to limit the data by institution type or maximum tuition.
+          <div class="title">Does Spending More Lead to Higher Graduation Rates?</div>
+          If institution type does not fully explain graduation outcomes, perhaps resources do.
+          <br><br>
+          One obvious difference between colleges is cost. Tuition and total attendance costs often reflect the level of resources available to support students —
+          including facilities, academic services, and support programs.
+          <br><br>
+          When we compare average cost with graduation rate, a clear pattern begins to appear.
         </section>
 
 
         <!-- Explanation -->
         <section class="step" data-active-index="4">
           <div class="title">Interpreting the Pattern</div>
-          The scatter plot suggests that higher-cost schools tend to have higher
-          graduation rates, although there is considerable overlap. Public and
-          private schools follow similar upward trends, but private institutions
-          make up most of the high-tuition, high-completion points.
+          Higher-cost schools tend to show higher graduation rates, and the relationship is moderately strong (r ≈ 0.66).
+          <br><br>
+          However, tuition alone is unlikely to fully explain the pattern. More expensive institutions often differ in many other ways —
+          including student preparation, admissions selectivity, and institutional resources.
+          <br><br>
+          To better understand what might drive these patterns, we next look at a factor related to learning environments: faculty availability.
         </section>
 
 
         <!-- 3: Student-Faculty Ratio vs Grad Rate -->
         <section class="step" data-active-index="5">
-          <div class="title">Do Smaller Classes Matter More Than Tuition?</div>
-          Here we explore whether <b>student-faculty ratio</b> (a proxy for class size / attention) relates to graduation outcomes.
-          Do schools with more faculty per student show higher graduation rates?
+          <div class="title">Do Smaller Classes Make a Difference?</div>
+          Student–faculty ratio is often used as a proxy for class size and access to instructors.
+          Schools with more faculty per student may provide more personalized academic support.
+          <br><br>
+          However, when we compare faculty ratio with graduation outcomes, the relationship appears relatively weak.
+          Although schools with more full-time faculty sometimes show slightly higher completion rates, the variation across institutions remains large.
+          <br><br>
+          This suggests that instructional resources alone cannot fully explain why some colleges graduate more students than others.
+          Another possible explanation is the preparation of incoming students.
         </section>
 
         <!-- Explanation -->
         <section class="step" data-active-index="6">
-          <div class="title">What This Suggests</div>
-          The chart shows a small positive relationship between 
-          <b>student-faculty ratio</b> and graduation rate, but the pattern is not strong. 
-          Schools with more full-time faculty do not always have much higher completion rates.
-
+          <div class="title">Selectivity and Student Preparation</div>
+          Admission rate provides a useful proxy for institutional selectivity. Schools that admit a smaller share of applicants are often enrolling students with stronger academic preparation.
           <br><br>
-          <b>Private colleges</b> tend to have higher graduation rates than public colleges even at similar faculty ratios, 
-          which suggests that class size alone cannot explain student success.
-
+          When we examine admission rates alongside graduation outcomes, a clear pattern emerges: more selective institutions tend to show higher graduation rates.
           <br><br>
-          Overall, smaller classes may help, but graduation outcomes are likely influenced by many other factors 
-          such as student preparation, financial support, and campus resources.
+          This suggests that student preparation may play an important role in shaping graduation outcomes — alongside institutional resources.
         </section>
         <!-- 4: Conclusion / Ranking -->
         <section class="step" data-active-index="7">
-          <div class="title">Does Selectivity Predict Graduation?</div>
-          Finally, we look at <b>admission rate</b> as a proxy for student preparation and institutional selectivity.
-          Hover over any dot to explore individual schools.
-          More selective schools (lower admission rates) tend to show substantially higher graduation rates.
+          <div class="title">How Do These Patterns Vary Across the Country?</div>
+          Finally, we can look at how graduation outcomes vary geographically.
+          <br><br>
+          Average graduation rates differ noticeably across regions of the United States. Regions such as New England and the Mid-Atlantic show higher overall completion rates, while other regions fall lower on average.
+          <br><br>
+          These regional differences likely reflect a combination of factors — including the mix of public and private institutions, levels of institutional funding, and differences in admissions selectivity.
         </section>
 
         <section class="step" data-active-index="8">
-          <div class="title">Conclusion: How Do Regions Compare?</div>
-          To wrap up, we look at average graduation rates by <b>geographic region</b>.
-          Regional differences reflect the combined effect of institution mix, tuition levels,
-          faculty investment, and student selectivity.
+          <div class="title">What Shapes College Graduation Outcomes?</div>
+          No single factor fully explains why some colleges graduate far more students than others.
+          <br><br>
+          Several institutional characteristics show relationships with graduation outcomes, including institution type, tuition levels, faculty resources, admissions selectivity, and regional context.
+          <br><br>
+          Among these, admissions selectivity appears most strongly associated with graduation rates. Overall, student success likely reflects a combination of institutional resources, student preparation, and broader educational context.
         </section>
 
       </div>
@@ -123,6 +145,7 @@
   <script src="js/sketches/viz/viz_faculty_grad.js"></script>
   <script src="js/sketches/viz/viz_admission.js"></script>
   <script src="js/sketches/viz/viz_bar.js"></script>
+  <script src="js/sketches/viz/viz_summary.js"></script>
 
   <script src="js/sketches/sketch_renderer.js"></script>
 
