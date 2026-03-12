@@ -111,6 +111,12 @@
                             window.__sketchAPI.setState({ activeIndex: mappedIndex });
                         }
 
+                        // move #vis up for all charts except the last one (activeIndex 8)
+                        var visEl = document.querySelector(cfg.visSelector);
+                        if (visEl) {
+                            visEl.style.top = (mappedIndex === 8) ? '75px' : '35px';
+                        }
+
                         // let visual controller decide whether to show/hide (give it the mapped index)
                         if (visualController) visualController.handleActive(mappedIndex);
                     });
